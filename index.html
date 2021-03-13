@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!---Bootstrap styling-->
+    <link 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous"
+    />
+
+    <!---Local stylesheet-->
+    <link
+        href="./Assets/CSS/style.css"
+        rel="stylesheet"
+    />
+
+    <!--Title of page tab-->
+    <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+
+    <header>
+        <div class="head">
+            <div class="headContainer">
+              <h1 class="mainTitle">Weather Dashboard</h1>
+            </div>
+        </div>
+    </header>
+
+    <form>
+       <div class="searchForm">
+           <div>
+               <h5 class="search">Search for a City:</h5>
+           </div>
+       </div>
+    </form>
+
+    <!--Link to jQuery library-->
+    <script src=""></script>
+    <!--Link to local JS file-->
+    <script src="./Assets/JS/script.js"></script>
 </body>
 </html>
