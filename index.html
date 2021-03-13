@@ -14,6 +14,14 @@
         crossorigin="anonymous"
     />
 
+    <!--Icon styling-->
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+    />
+
     <!---Local stylesheet-->
     <link
         href="./Assets/CSS/style.css"
@@ -35,12 +43,13 @@
     </header>
 
     <form>
-       <div class="searchForm">
-           <div>
-               <h5 class="search">Search for a City:</h5>
-           </div>
-       </div>
+        <div class="search">
+            <label for="cityInput">Search for a City:</label><br>
+            <input type="text" id="cityInput">
+            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
+        </div>
     </form>
+
 
     <!--Link to jQuery library-->
     <script src=""></script>

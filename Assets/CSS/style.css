@@ -13,12 +13,18 @@ body {
     color: white;
 }
 
-.searchForm {
-    background-color:#f8f8ff;
-    width: 30%;
-}
 
 .search {
+    background-color:#FFFAFA;
+    width: 30%;
     padding-top: 10px;
     padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.searchButton {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 5px;
+    border-color: dodgerblue;
 }
