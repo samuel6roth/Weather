@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!---Bootstrap styling-->
-    <link 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
-        crossorigin="anonymous"
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+    crossorigin="anonymous"
     />
 
     <!--Icon styling-->
@@ -42,14 +41,24 @@
         </div>
     </header>
 
-    <form>
-        <div class="search">
-            <label for="cityInput">Search for a City:</label><br>
-            <input type="text" id="cityInput">
-            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
-        </div>
-    </form>
+    <div class="flexContainer">
+        <form>
+            <div class="search">
+                <label for="cityInput">Search for a City:</label><br>
+                <input type="text" id="cityInput">
+                <button type="button" class="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
 
+        <div class="cityContainer">
+            <span class="cityName">Test</span>
+            <img id="currentPicture" src="placeholder">
+            <p class="temperature">Temp</p>
+            <p class="humidity">Humidy</p>
+            <p class="windSpeed">Wind</p>
+            <p class="uvIndex">UV Index</p>
+        </div>
+    </div>
 
     <!--Link to jQuery library-->
     <script src=""></script>
