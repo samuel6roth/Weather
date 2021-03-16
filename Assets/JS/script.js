@@ -1,1 +1,10 @@
-test
+const key = "f516d162aa14db72fa44b821ca8b9bb0"
+const history = document.getElementById("history")
+const searchButton = document.getElementById("searchbutton")
+const cityInput = document.getElementById("cityInput")
+const cityName = document.getElementById("cityName")
+const currentImage = document.getElementById("currentImage")
+const temperature = document.getElementById("temperature")
+const humidity = document.getElementById("humidity")
+const windSpeed = document.getElementById("windSpeed")
+const uvIndex = document.getElementById("uvIndex")
