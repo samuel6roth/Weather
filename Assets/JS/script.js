@@ -11,22 +11,23 @@ let uvIndex = document.getElementById("UV-index");
 // $('#city-input').on('keypress', cityWeather());
 
 let cityWeather = function (event){
-    let cityInput = input.nodeValue.trim();
+    let cityInput = input.value.trim();
     input.value = '';
     if (cityInput) {
-        getLatLon(cityInput);
+        latituteLongitude(cityInput);
     } else {
         alert('Enter city');
     }
 }
 
-let LatituteLongitude = function (cityInput) {
+let latituteLongitude = function (cityInput) {
     event.preventDefault();
     let latitudeLongitudeAPI = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&units=imperial&appid=f516d162aa14db72fa44b821ca8b9bb0';
     fetch(latitudeLongitudeAPI)
         .then(function (response) {
             if (response.ok) {
             response.json().then(function (data) {
+                console.log(response)
                 oneCall(data);
             });
             } else {
@@ -38,4 +39,25 @@ let LatituteLongitude = function (cityInput) {
         });
    };
 
+function oneCall(data){
+let longitude = data.coord.lon;
+let latitude = data.coord.lat;
+let singleCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&units=imperial&exclude=hourly,minutely,alerts&appid=f516d162aa14db72fa44b821ca8b9bb0';
+fetch(singleCall)
+    .then(function (response) {
+        if (response.ok) {
+        response.json().then(function (data) {
+        });
+        } else {
+        alert('Error: ' + response.statusText);
+        }
+    })
+    .catch(function (error) {
+        alert('Cannot connect');
+    });
+};
+
+
+
+//$('#city-input').on('keypress', cityWeather)
 $('#search-button').click(cityWeather);
