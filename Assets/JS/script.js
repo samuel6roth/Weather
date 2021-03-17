@@ -28,8 +28,7 @@ let getLatLon = function (cityInput) {
         .then(function (response) {
             if (response.ok) {
             response.json().then(function (data) {
-                createCurrWeatherDiv(data);
-                handleOneCall(data);
+                oneCall(data);
             });
             } else {
             alert('Error: ' + response.statusText);
