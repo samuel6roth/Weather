@@ -20,11 +20,10 @@ let cityWeather = function (event){
     }
 }
 
-let getLatLon = function (cityInput) {
+let LatituteLongitude = function (cityInput) {
     event.preventDefault();
-    let apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&units=imperial&appid=f516d162aa14db72fa44b821ca8b9bb0';
-    $('.removeMe').remove();
-    fetch(apiUrl)
+    let latitudeLongitudeAPI = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&units=imperial&appid=f516d162aa14db72fa44b821ca8b9bb0';
+    fetch(latitudeLongitudeAPI)
         .then(function (response) {
             if (response.ok) {
             response.json().then(function (data) {
