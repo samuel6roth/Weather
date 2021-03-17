@@ -2,13 +2,11 @@ let key = "f516d162aa14db72fa44b821ca8b9bb0";
 let input = document.getElementById("city-input");
 //let cityHeader = document.getElementById("cityHeader");
 let currentImage = document.getElementById("current-pic");
-let temperature = document.getElementById("temperature");
+//let temperature = document.getElementById("temperature");
 let humidity = document.getElementById("humidity");
 let windSpeed = document.getElementById("wind-speed");
 let uvIndex = document.getElementById("UV-index");
-// let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
-// $('#city-input').on('keypress', cityWeather());
 
 let cityWeather = function (event){
     let cityInput = input.value.trim();
@@ -47,6 +45,8 @@ fetch(singleCall)
     .then(function (response) {
         if (response.ok) {
         response.json().then(function (data) {
+            console.log(response)
+            currentWeather(data); 
         });
         } else {
         alert('Error: ' + response.statusText);
@@ -57,6 +57,22 @@ fetch(singleCall)
     });
 };
 
+let currentWeather = function (data) {
+    const temp = data.current.temp + '°';
+    const icon = data.current.weather[0].icon;
+    const humidity = data.current.humidity + '%';
+    const windSpeed = data.current.wind_speed;
+    const uvIndex = data.current.uvi;
+
+    document.getElementById('temperature').innerHTML = temp
+    document.getElementById('humidity').innerHTML = humidity
+    document.getElementById('wind-speed').innerHTML = windSpeed
+    document.getElementById('UV-index').innerHTML = uvIndex
+    console.log(temp)
+    
+}
+
+    
 
 
 //$('#city-input').on('keypress', cityWeather)
