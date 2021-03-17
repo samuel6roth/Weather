@@ -1,11 +1,13 @@
-let key = "f516d162aa14db72fa44b821ca8b9bb0";
+//let key = "f516d162aa14db72fa44b821ca8b9bb0";
 let input = document.getElementById("city-input");
 //let cityHeader = document.getElementById("cityHeader");
-let currentImage = document.getElementById("current-pic");
+//let currentImage = document.getElementById("current-pic");
 //let temperature = document.getElementById("temperature");
-let humidity = document.getElementById("humidity");
-let windSpeed = document.getElementById("wind-speed");
-let uvIndex = document.getElementById("UV-index");
+//let humidity = document.getElementById("humidity");
+//let windSpeed = document.getElementById("wind-speed");
+//let uvIndex = document.getElementById("UV-index");
+//let desc = document.getElementsByClassName("no-show")
+let todaysDate = moment().format('L');
 
 
 let cityWeather = function (event){
@@ -47,6 +49,7 @@ fetch(singleCall)
         response.json().then(function (data) {
             console.log(response)
             currentWeather(data); 
+            extentedForecast(data);
         });
         } else {
         alert('Error: ' + response.statusText);
@@ -59,21 +62,29 @@ fetch(singleCall)
 
 let currentWeather = function (data) {
     const temp = data.current.temp + '°';
-    const icon = data.current.weather[0].icon;
     const humidity = data.current.humidity + '%';
     const windSpeed = data.current.wind_speed;
     const uvIndex = data.current.uvi;
 
-    document.getElementById('temperature').innerHTML = temp
-    document.getElementById('humidity').innerHTML = humidity
-    document.getElementById('wind-speed').innerHTML = windSpeed
-    document.getElementById('UV-index').innerHTML = uvIndex
+    document.getElementById('cityHeader').innerText = todaysDate
+    document.getElementById('temperature').innerText = 'Temperature: ' + temp
+    document.getElementById('humidity').innerText = 'Humidity: ' + humidity
+    document.getElementById('wind-speed').innerText = 'Wind Speed: ' + windSpeed
+    document.getElementById('UV-index').innerText = 'UV-Index: ' + uvIndex
     console.log(temp)
     
 }
 
-    
+let extentedForecast = function (data) {
+    for (let i = 1; i < 6; i++) {
+        let uniDate = data.daily[i].dt
+        let date = moment.unix(uniDate).format('M/D/YY');
+        let temp = data.daily[i].temp.max + '°';
+        let humidity = data.daily[i].humidity + '%';
+
+        document.getElementsByClassName('forecast').innerText = date;
+    }
+} 
 
 
-//$('#city-input').on('keypress', cityWeather)
 $('#search-button').click(cityWeather);
