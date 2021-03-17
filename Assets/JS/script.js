@@ -95,7 +95,7 @@ let extentedForecast = function (data) {
         let humidity = data.daily[i].humidity + '%';
 
         //Implementing the above mentioned variables into the HTML
-        document.getElementsByClassName('forecast').innerText = date + temp + humidity;
+        document.getElementById('forecast').innerText = date + temp + humidity;
         console.log(date);
         console.log(temp);
         console.log(humidity);
