@@ -1,6 +1,7 @@
 //Created variables
 let input = document.getElementById("city-input");
 let todaysDate = moment().format('L');
+let extendedFiveForecast = document.getElementById('extended-forecast');
 
 
 let cityWeather = function (event){
@@ -89,16 +90,24 @@ let extentedForecast = function (data) {
     //Loop to input the fetched data five times
     for (let i = 1; i < 6; i++) {
         //Creating variables that include the above loop
-        let uniDate = data.daily[i].dt
-        let date = moment.unix(uniDate).format('M/D/YY');
         let temp = data.daily[i].temp.max + '°';
         let humidity = data.daily[i].humidity + '%';
+        let loopDate = data.daily[i].dt
+        let date = moment.unix(loopDate).format('M/D/YY');
 
-        //Implementing the above mentioned variables into the HTML
-        document.getElementById('forecast').innerText = date + temp + humidity;
-        console.log(date);
-        console.log(temp);
-        console.log(humidity);
+        //Assigning variables to JS created HTML elements
+        let htmlDiv = document.createElement('div')
+        let htmlDate = document.createElement('p')
+        let htmlTemperature = document.createElement('p')
+        let htmlHumidity = document.createElement('p')
+
+        //Setting the JS created HTML variables equal to the loop variables
+        htmlDate.textContent = date
+        htmlTemperature.innerHTML = 'Temperature- ' + temp
+        htmlHumidity.innerHTML = 'Humdity- ' + humidity
+        extendedFiveForecast.appendChild(htmlDiv)
+        //Adds the weather variables to div
+        htmlDiv.append(htmlDate, htmlTemperature, htmlHumidity);
     }
 } 
 
